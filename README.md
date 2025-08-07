@@ -105,10 +105,10 @@ The system uses the handoff_to_user tool in two modes
 
 ### Agents as Tools Pattern
 #### The system implements the "Agents as Tools" architectural pattern:
-- ** Main Orchestrator Agent**: Handles user interaction and coordinates the overall process
-- ** Evaluation Agent**: Specialized agent for assessing response quality and confidence
-- ** Validation Agent**: Specialized agent for identifying issues in responses
-- ** Document Generation Agent**: Specialized agent for creating the final requirements document
+- **Main Orchestrator Agent**: Handles user interaction and coordinates the overall process
+- **Evaluation Agent**: Specialized agent for assessing response quality and confidence
+- **Validation Agent**: Specialized agent for identifying issues in responses
+- **Document Generation Agent**: Specialized agent for creating the final requirements document
 
 #### This approach provides:
 - Separation of concerns with focused expertise
