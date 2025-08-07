@@ -37,7 +37,6 @@ python -m venv venv
 source venv/bin/activate
 Install dependencies:
 pip install -r requirements.txt
-
 Configure your AWS credentials:
 # Set environment variables
 # Windows
@@ -49,25 +48,21 @@ set AWS_REGION=ap-southeast-2
 export AWS_ACCESS_KEY_ID=your_access_key
 export AWS_SECRET_ACCESS_KEY=your_secret_key
 export AWS_REGION=ap-southeast-2
-
-#### Running the Examples
+Running the Examples
 Requirements Gathering System
 This example demonstrates a structured requirements gathering process with human-in-the-loop interactions:
 
 python src/requirements_demo.py
-
 Options:
+
 --demo: Run with a sample project
 --help: Show usage information
 --kb: Enable knowledge base integration
 --kb YOUR_KB_ID: Use a specific knowledge base ID
-
-### Knowledge Base Integration
+Knowledge Base Integration
 The system can be enhanced with Amazon Bedrock Knowledge Base integration:
 
 python src/requirements_demo.py --kb
-
-
 This will:
 
 Query the knowledge base for relevant information
@@ -99,14 +94,13 @@ Main Orchestrator Agent: Handles user interaction and coordinates the overall pr
 Evaluation Agent: Specialized agent for assessing response quality and confidence
 Validation Agent: Specialized agent for identifying issues in responses
 Document Generation Agent: Specialized agent for creating the final requirements document
+This approach provides:
 
-#### This approach provides:
 Separation of concerns with focused expertise
 Improved response quality through specialized analysis
 Modular architecture that's easy to extend
 Clear delegation of tasks to the most appropriate agent
-
-#### Requirements Gathering Workflow
+Requirements Gathering Workflow
 Project Scope: Collect project objectives, main goals, and overall scope
 User Stories: Gather user stories, use cases, and workflows
 Technical Constraints: Document technical requirements, platforms, and limitations
@@ -117,8 +111,7 @@ Validation and Confidence Scoring: Evaluate the quality of all responses
 Document Generation: Create a comprehensive requirements document
 User Review: Allow the user to review and request changes
 Storage: Save locally and optionally to DynamoDB
-
-### Enhanced Tools
+Enhanced Tools
 The system includes several specialized tools:
 
 handoff_to_user: Enables interactive user input collection
@@ -126,8 +119,7 @@ evaluate_confidence: Specialized agent for evaluating response quality
 validate_response: Specialized agent for identifying issues in responses
 generate_requirements_doc: Specialized agent for document generation
 query_knowledge_base: Retrieves relevant information from knowledge base
-
-### Project Structure
+Project Structure
 .
 ├── src/
 │   ├── requirements_demo.py
@@ -138,21 +130,19 @@ query_knowledge_base: Retrieves relevant information from knowledge base
 ├── .gitignore
 ├── README.md
 └── requirements.txt
-
-### Output Files
+Output Files
 The system generates a comprehensive requirements document:
+
 requirements_YYYYMMDD_HHMMSS.md - Markdown file with all gathered requirements
 Includes executive summary, detailed sections, and confidence scores
 Optional storage in DynamoDB for persistence and sharing
-
-#### Tips for Best Results
+Tips for Best Results
 Provide detailed responses to initial questions
 Be specific about technical requirements and constraints
 Include concrete examples and use cases
 Add any additional information when prompted
 Review the generated document carefully before finalizing
-
-#### Extending the System
+Extending the System
 You can extend the system by:
 
 Adding new specialized agent tools
@@ -161,26 +151,28 @@ Modifying the system prompt to focus on different types of requirements
 Adding new sections to the requirements gathering process
 Implementing additional output formats (JSON, HTML, etc.)
 Troubleshooting
-
-#### AWS Credentials
+AWS Credentials
 If you encounter AWS authentication issues:
+
 Verify your credentials are correctly set up in:
+
 Environment variables
 ~/.aws/credentials file
 AWS CLI configuration
+Ensure your IAM user/role has appropriate permissions for:
 
-#### Ensure your IAM user/role has appropriate permissions for:
 Bedrock model invocation
 Knowledge base access
 DynamoDB operations
 Strands Framework Issues
 If you encounter issues with the Strands framework:
 
-#### Verify you have the correct version installed:
+Verify you have the correct version installed:
 pip show strands
 Check for any error messages in the console output
 
 Try reinstalling the package:
+
 pip uninstall strands
 pip install strands
 Contributing
@@ -190,7 +182,7 @@ License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 
-#### This updated README.md includes:
+This updated README.md includes:
 
 1. Information about the "Agents as Tools" pattern
 2. Updated workflow with the new steps (validation before document generation)
