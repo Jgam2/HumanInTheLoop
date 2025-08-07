@@ -26,7 +26,7 @@ This repository demonstrates advanced human-in-the-loop AI workflows using the S
 1. Clone this repository:
 ```bash
 git clone https://github.com/Jgam2/HumanInTheLoop.git
-cd HumanInTheLoop```
+cd HumanInTheLoop
 
 Create and activate a virtual environment:
 # Windows
@@ -117,24 +117,24 @@ The system uses the handoff_to_user tool in two modes
 - Clear delegation of tasks to the most appropriate agent
 
 #### Requirements Gathering Workflow
-- ** Project Scope**: Collect project objectives, main goals, and overall scope
-- ** User Stories**: Gather user stories, use cases, and workflows
-- ** Technical Constraints**: Document technical requirements, platforms, and limitations
-- ** Success Criteria**: Define success metrics and acceptance criteria
-- ** File Format Support**: Specify required file formats and data specifications
-- ** Additional Information**: Ask if the user wants to add anything else
-- ** Validation and Confidence Scoring**: Evaluate the quality of all responses
-- ** Document Generation**: Create a comprehensive requirements document
-- ** User Review**: Allow the user to review and request changes
-- ** Storage**: Save locally and optionally to DynamoDB
+- **Project Scope**: Collect project objectives, main goals, and overall scope
+- **User Stories**: Gather user stories, use cases, and workflows
+- **Technical Constraints**: Document technical requirements, platforms, and limitations
+- **Success Criteria**: Define success metrics and acceptance criteria
+- **File Format Support**: Specify required file formats and data specifications
+- **Additional Information**: Ask if the user wants to add anything else
+- **Validation and Confidence Scoring**: Evaluate the quality of all responses
+- **Document Generation**: Create a comprehensive requirements document
+- **User Review**: Allow the user to review and request changes
+- **Storage**: Save locally and optionally to DynamoDB
 
 #### Enhanced Tools
 ##### The system includes several specialized tools:
-- ** handoff_to_user**: Enables interactive user input collection
-- ** evaluate_confidence**: Specialized agent for evaluating response quality
-- ** validate_response**: Specialized agent for identifying issues in responses
-- ** generate_requirements_doc**: Specialized agent for document generation
-- ** query_knowledge_base**: Retrieves relevant information from knowledge base
+- **handoff_to_user**: Enables interactive user input collection
+- **evaluate_confidence**: Specialized agent for evaluating response quality
+- **validate_response**: Specialized agent for identifying issues in responses
+- **generate_requirements_doc**: Specialized agent for document generation
+- **query_knowledge_base**: Retrieves relevant information from knowledge base
 
 
 #### Project Structure
