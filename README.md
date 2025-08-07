@@ -1,4 +1,4 @@
-# Human-in-the-Loop Requirements Gathering with Knowledge Base Integration
+# Strands Human-in-the-Loop Functionality with Knowledge Base Integration
 
 This repository demonstrates advanced human-in-the-loop AI workflows using the Strands framework, with integration to Amazon Bedrock Knowledge Base for enhanced responses.
 
