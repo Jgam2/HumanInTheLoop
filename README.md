@@ -79,66 +79,66 @@ python src/requirements_demo.py --kb
 
 #### This will:
 
-- ** Query the knowledge base for relevant information
-- ** Incorporate domain knowledge into questions and suggestions
-- ** Provide more informed guidance based on best practices
-- ** Enhance the quality of the requirements document
+- Query the knowledge base for relevant information
+- Incorporate domain knowledge into questions and suggestions
+- Provide more informed guidance based on best practices
+- Enhance the quality of the requirements document
 
 ### How It Works
 
 ### Human-in-the-Loop Pattern
 The system uses the handoff_to_user tool in two modes
 ##### Continue Mode (breakout_of_loop=False):
-- ** Agent pauses execution and prompts the user
-- ** Agent waits for user input
-- ** After receiving input, agent CONTINUES processing
-- ** Used for the first 5 requirements sections and review
+- Agent pauses execution and prompts the user
+- Agent waits for user input
+- After receiving input, agent CONTINUES processing
+- Used for the first 5 requirements sections and review
 
 ##### Break Mode (breakout_of_loop=True):
-- ** Agent pauses execution and prompts the user
-- ** Agent waits for user input
-- ** After receiving input, agent STOPS execution completely
-- ** Used for the additional information section to complete input gathering
+- Agent pauses execution and prompts the user
+- Agent waits for user input
+- After receiving input, agent STOPS execution completely
+- Used for the additional information section to complete input gathering
 
 ###### This creates a structured, section-by-section requirements gathering process with human oversight at each critical decision point.
 
 
 ### Agents as Tools Pattern
 #### The system implements the "Agents as Tools" architectural pattern:
-- ** Main Orchestrator Agent: Handles user interaction and coordinates the overall process
-- ** Evaluation Agent: Specialized agent for assessing response quality and confidence
-- ** Validation Agent: Specialized agent for identifying issues in responses
-- ** Document Generation Agent: Specialized agent for creating the final requirements document
+- ** Main Orchestrator Agent**: Handles user interaction and coordinates the overall process
+- ** Evaluation Agent**: Specialized agent for assessing response quality and confidence
+- ** Validation Agent**: Specialized agent for identifying issues in responses
+- ** Document Generation Agent**: Specialized agent for creating the final requirements document
 
 #### This approach provides:
-- ** Separation of concerns with focused expertise
-- ** Improved response quality through specialized analysis
-- ** Modular architecture that's easy to extend
-- ** Clear delegation of tasks to the most appropriate agent
+- Separation of concerns with focused expertise
+- Improved response quality through specialized analysis
+- Modular architecture that's easy to extend
+- Clear delegation of tasks to the most appropriate agent
 
 #### Requirements Gathering Workflow
-- ** Project Scope: Collect project objectives, main goals, and overall scope
-- ** User Stories: Gather user stories, use cases, and workflows
-- ** Technical Constraints: Document technical requirements, platforms, and limitations
-- ** Success Criteria: Define success metrics and acceptance criteria
-- ** File Format Support: Specify required file formats and data specifications
-- ** Additional Information: Ask if the user wants to add anything else
-- ** Validation and Confidence Scoring: Evaluate the quality of all responses
-- ** Document Generation: Create a comprehensive requirements document
-- ** User Review: Allow the user to review and request changes
-- ** Storage: Save locally and optionally to DynamoDB
+- ** Project Scope**: Collect project objectives, main goals, and overall scope
+- ** User Stories**: Gather user stories, use cases, and workflows
+- ** Technical Constraints**: Document technical requirements, platforms, and limitations
+- ** Success Criteria**: Define success metrics and acceptance criteria
+- ** File Format Support**: Specify required file formats and data specifications
+- ** Additional Information**: Ask if the user wants to add anything else
+- ** Validation and Confidence Scoring**: Evaluate the quality of all responses
+- ** Document Generation**: Create a comprehensive requirements document
+- ** User Review**: Allow the user to review and request changes
+- ** Storage**: Save locally and optionally to DynamoDB
 
 #### Enhanced Tools
 ##### The system includes several specialized tools:
-- ** handoff_to_user: Enables interactive user input collection
-- ** evaluate_confidence: Specialized agent for evaluating response quality
-- ** validate_response: Specialized agent for identifying issues in responses
-- ** generate_requirements_doc: Specialized agent for document generation
-- ** query_knowledge_base: Retrieves relevant information from knowledge base
+- ** handoff_to_user**: Enables interactive user input collection
+- ** evaluate_confidence**: Specialized agent for evaluating response quality
+- ** validate_response**: Specialized agent for identifying issues in responses
+- ** generate_requirements_doc**: Specialized agent for document generation
+- ** query_knowledge_base**: Retrieves relevant information from knowledge base
 
 
 #### Project Structure
-
+```bash
 ├── src/
 │   ├── requirements_demo.py
 │   └── kb_chatbot_example.py
@@ -148,44 +148,46 @@ The system uses the handoff_to_user tool in two modes
 ├── .gitignore
 ├── README.md
 └── requirements.txt
-
+```
 
 #### Output Files
 
-- ** The system generates a comprehensive requirements document:
-- ** requirements_YYYYMMDD_HHMMSS.md - Markdown file with all gathered requirements
-- ** Includes executive summary, detailed sections, and confidence scores
-- ** Optional storage in DynamoDB for persistence and sharing
+- The system generates a comprehensive requirements document:
+- requirements_YYYYMMDD_HHMMSS.md - Markdown file with all gathered requirements
+- Includes executive summary, detailed sections, and confidence scores
+- Optional storage in DynamoDB for persistence and sharing
 
 #### Tips for Best Results
-- ** Provide detailed responses to initial questions
-- ** Be specific about technical requirements and constraints
-- ** Include concrete examples and use cases
-- ** Add any additional information when prompted
-- ** Review the generated document carefully before finalizing
+- Provide detailed responses to initial questions
+- Be specific about technical requirements and constraints
+- Include concrete examples and use cases
+- Add any additional information when prompted
+- Review the generated document carefully before finalizing
 
 #### Extending the System
 ##### You can extend the system by:
-- ** Adding new specialized agent tools
-- ** Enhancing the knowledge base with domain-specific information
-- ** Modifying the system prompt to focus on different types of requirements
-- ** Adding new sections to the requirements gathering process
-- ** Implementing additional output formats (JSON, HTML, etc.)
+- Adding new specialized agent tools
+- Enhancing the knowledge base with domain-specific information
+- Modifying the system prompt to focus on different types of requirements
+- Adding new sections to the requirements gathering process
+- Implementing additional output formats (JSON, HTML, etc.)
 
 #### Troubleshooting
 ##### AWS Credentials
-- ** If you encounter AWS authentication issues:
-- ** Verify your credentials are correctly set up in:
+- If you encounter AWS authentication issues:
+- Verify your credentials are correctly set up in:
 
 ##### Environment variables
+```bash
 ~/.aws/credentials file
-
+```
 #### AWS CLI configuration
 ###### Ensure your IAM user/role has appropriate permissions for:
-- ** Bedrock model invocation
-- ** Knowledge base access
-- ** DynamoDB operations
-- ** Strands Framework Issues
+- Bedrock model invocation
+- Knowledge base access
+- DynamoDB operations
+
+### Strands Framework Issues
 
 ##### If you encounter issues with the Strands framework:
 Verify you have the correct version installed:
