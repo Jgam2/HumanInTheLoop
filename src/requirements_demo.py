@@ -280,6 +280,15 @@ def display_section_progress():
 
 def extract_confidence_score(evaluation_text):
     """Extract confidence score from evaluation text."""
+    # Handle dictionary result
+    if isinstance(evaluation_text, dict):
+        # Try to extract from content if it's a tool result
+        if "content" in evaluation_text and isinstance(evaluation_text["content"], list):
+            evaluation_text = evaluation_text["content"][0]["text"]
+        else:
+            # Default if we can't extract text
+            return 7.0
+    
     # Extract the confidence score using regex
     score_pattern = r"(?:confidence|score):\s*(\d+(?:\.\d+)?)"
     score_match = re.search(score_pattern, evaluation_text.lower())
@@ -549,7 +558,7 @@ If information applies to multiple sections, return multiple sections separated 
         # Ask for user review
         review_response = agent.tool.handoff_to_user(
             message="Please review the requirements document. Would you like to make any changes? If yes, please specify what changes you'd like to make:",
-            breakout_of_loop=False
+            breakout_of_loop=True
         )
         
         # Process review feedback if provided
@@ -930,6 +939,9 @@ def main():
             console.print(f"[red]Error: {result['error']}[/red]")
     
     console.print(f"\n[dim]Thank you for using the Requirements Gathering System![/dim]")
+
+    # Explicitly exit to ensure the process doesn't continue
+    sys.exit(0)
 
 if __name__ == "__main__":
     main()
