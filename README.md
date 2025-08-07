@@ -26,18 +26,22 @@ This repository demonstrates advanced human-in-the-loop AI workflows using the S
 1. Clone this repository:
 ```bash
 git clone https://github.com/Jgam2/HumanInTheLoop.git
-cd HumanInTheLoop
+cd HumanInTheLoop```
+
 Create and activate a virtual environment:
-# Windows
+```# Windows
 python -m venv venv
 venv\Scripts\activate
 
 # Linux/Mac
 python -m venv venv
-source venv/bin/activate
+source venv/bin/activate```
+
 Install dependencies:
-pip install -r requirements.txt
+```pip install -r requirements.txt"
+
 Configure your AWS credentials:
+```
 # Set environment variables
 # Windows
 set AWS_ACCESS_KEY_ID=your_access_key
@@ -48,31 +52,39 @@ set AWS_REGION=ap-southeast-2
 export AWS_ACCESS_KEY_ID=your_access_key
 export AWS_SECRET_ACCESS_KEY=your_secret_key
 export AWS_REGION=ap-southeast-2
+```
+
 Running the Examples
 Requirements Gathering System
 This example demonstrates a structured requirements gathering process with human-in-the-loop interactions:
-
+```
 python src/requirements_demo.py
+```
 Options:
 
 --demo: Run with a sample project
 --help: Show usage information
 --kb: Enable knowledge base integration
 --kb YOUR_KB_ID: Use a specific knowledge base ID
+
 Knowledge Base Integration
+```
 The system can be enhanced with Amazon Bedrock Knowledge Base integration:
 
 python src/requirements_demo.py --kb
+```
+
 This will:
 
 Query the knowledge base for relevant information
 Incorporate domain knowledge into questions and suggestions
 Provide more informed guidance based on best practices
 Enhance the quality of the requirements document
+
 How It Works
+```
 Human-in-the-Loop Pattern
 The system uses the handoff_to_user tool in two modes:
-
 Continue Mode (breakout_of_loop=False):
 
 Agent pauses execution and prompts the user
@@ -86,20 +98,21 @@ Agent waits for user input
 After receiving input, agent STOPS execution completely
 Used for the additional information section to complete input gathering
 This creates a structured, section-by-section requirements gathering process with human oversight at each critical decision point.
+```
 
 Agents as Tools Pattern
 The system implements the "Agents as Tools" architectural pattern:
-
 Main Orchestrator Agent: Handles user interaction and coordinates the overall process
 Evaluation Agent: Specialized agent for assessing response quality and confidence
 Validation Agent: Specialized agent for identifying issues in responses
 Document Generation Agent: Specialized agent for creating the final requirements document
-This approach provides:
 
+This approach provides:
 Separation of concerns with focused expertise
 Improved response quality through specialized analysis
 Modular architecture that's easy to extend
 Clear delegation of tasks to the most appropriate agent
+
 Requirements Gathering Workflow
 Project Scope: Collect project objectives, main goals, and overall scope
 User Stories: Gather user stories, use cases, and workflows
@@ -111,16 +124,18 @@ Validation and Confidence Scoring: Evaluate the quality of all responses
 Document Generation: Create a comprehensive requirements document
 User Review: Allow the user to review and request changes
 Storage: Save locally and optionally to DynamoDB
+
 Enhanced Tools
 The system includes several specialized tools:
-
 handoff_to_user: Enables interactive user input collection
 evaluate_confidence: Specialized agent for evaluating response quality
 validate_response: Specialized agent for identifying issues in responses
 generate_requirements_doc: Specialized agent for document generation
 query_knowledge_base: Retrieves relevant information from knowledge base
+
+
 Project Structure
-.
+```
 ├── src/
 │   ├── requirements_demo.py
 │   └── kb_chatbot_example.py
@@ -130,51 +145,57 @@ Project Structure
 ├── .gitignore
 ├── README.md
 └── requirements.txt
-Output Files
-The system generates a comprehensive requirements document:
+```
 
+Output Files
+
+The system generates a comprehensive requirements document:
 requirements_YYYYMMDD_HHMMSS.md - Markdown file with all gathered requirements
 Includes executive summary, detailed sections, and confidence scores
 Optional storage in DynamoDB for persistence and sharing
+
 Tips for Best Results
 Provide detailed responses to initial questions
 Be specific about technical requirements and constraints
 Include concrete examples and use cases
 Add any additional information when prompted
 Review the generated document carefully before finalizing
+
 Extending the System
 You can extend the system by:
-
 Adding new specialized agent tools
 Enhancing the knowledge base with domain-specific information
 Modifying the system prompt to focus on different types of requirements
 Adding new sections to the requirements gathering process
 Implementing additional output formats (JSON, HTML, etc.)
+
 Troubleshooting
 AWS Credentials
 If you encounter AWS authentication issues:
-
 Verify your credentials are correctly set up in:
 
 Environment variables
 ~/.aws/credentials file
+
 AWS CLI configuration
 Ensure your IAM user/role has appropriate permissions for:
-
 Bedrock model invocation
 Knowledge base access
 DynamoDB operations
 Strands Framework Issues
-If you encounter issues with the Strands framework:
 
+If you encounter issues with the Strands framework:
 Verify you have the correct version installed:
+```
 pip show strands
+```
 Check for any error messages in the console output
 
 Try reinstalling the package:
-
+```
 pip uninstall strands
 pip install strands
+```
 Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
 
